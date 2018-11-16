@@ -10,9 +10,9 @@ let usage() =
     printfn "Usage: dotnet run <Lambda Expr>."
     exit 1
 
-/// <summary>Turns an AST into a string for your reading pleasure.</summary>
-/// <param name="e">An Expr.</param>
-/// <returns>A string.</returns>
+/// <summary>Reads a lambda expression and beta-normalizes the result.</summary>
+/// <param name="argv">A string (the user input).</param>
+/// <returns>Prints out beta-normalized lambda expression.</returns>
 [<EntryPoint>]
 let main argv =
     if Array.length argv <> 1 then 

@@ -5,6 +5,11 @@ open AlphaReduction
 open Parser
 open LambdaParser
 
+/// <summary>Performs a beta substitution on a lambda expression.</summary>
+/// <param name="v">A char.</param>
+/// <param name="with_e">An Expr.</param>
+/// <param name="in_e">An Expr.</param>
+/// <returns>An Expr.</returns>
 let rec sub (v: char) (with_e: Expr) (in_e: Expr) : Expr = 
     match in_e with 
     | Variable var -> 
@@ -15,6 +20,9 @@ let rec sub (v: char) (with_e: Expr) (in_e: Expr) : Expr =
     | Abstraction (var, e) -> Abstraction(var, sub v with_e e) 
     | Application (e1, e2) -> Application(sub v with_e e1, sub v with_e e2)
 
+/// <summary>Performs at most one step of beta reduction on expression e.</summary>
+/// <param name="e">An Expr.</param>
+/// <returns>An Expr.</returns>
 let rec betastep (e: Expr) : Expr = 
     match e with 
     | Variable v -> e
@@ -38,6 +46,9 @@ let rec betastep (e: Expr) : Expr =
              else 
                 Application(red_e1, e2)
 
+/// <summary>Completely beta normalizes a lambda expression. </summary>
+/// <param name="e">An Expr.</param>
+/// <returns>An Expr.</returns>
 let rec betanorm (e: Expr) : Expr =
     let alpha =  fst (alphanorm e (fv e) Map.empty)
     let beta = betastep alpha
