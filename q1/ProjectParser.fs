@@ -27,26 +27,16 @@ let pobj = pright pws1 (pleft (pmany1 pch) paux)|>> (fun a -> Main (stringify a)
 
 let pcat = pright pws1 (pstr ("fit in") |>> (fun (a) -> FitIn (a))) <!> "category"
 
-//let pcomp =  pright pws1 (pbetween particle (pstr "?") (pright pws1 (pmany1 pch))) |>> (fun (a) -> Compare (stringify a)) <!> "comparing"
-
-
 let compws = pws1 <!> "pcompws"
-let pcomp = pright compws (pbetween particle (pchar '?') (pright pws1 (pstr "hhhh"))) <!> "Compare"
-
-//let pcomp =  pright pws1 (pbetween particle (pstr "?") (pright pws1 (pmany1 pch))) |>> (fun (a) -> Compare (stringify a)) <!> "comparing"
-
+let pcomp = pright compws (pbetween particle (pchar '?') (pright pws1 (pmany1 pch))) |>> (fun(a) -> Compare (stringify a)) <!> "Compare"
 
 let query = pseq pheader (pseq pobj (pseq pcat pcomp  (fun (a,b)-> (a,b))) (fun (a,(b,c)) -> (a,b,c))) (fun (a,(b,c,d)) -> (a,b,c,d))
 
-//let query1 = pheader |>> (fun (a) -> (a))
-
 /// <summary>Parses an entire question, including EOF.</summary>
-/// <returns>A Question value.</returns>
+/// <returns>A Query value.</returns>
 let grammar =  pleft query peof
 
 let parse s = 
     match (grammar (prepare s)) with
     | Success(e,_) -> Some e
     | Failure -> None
-    
- 

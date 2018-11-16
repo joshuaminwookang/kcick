@@ -6,23 +6,23 @@ open ProjectInterpreter
 open Parser
 
 let usage() = 
-    printfn "Usage: dotnet run <Question>."
+    printfn "Usage: dotnet run <Your question here>."
     exit 1
 
-/// <summary>Turns an AST into a string for your reading pleasure.</summary>
-/// <param name="e">An Expr.</param>
-/// <returns>A string.</returns>
+/// <summary>Reads in a Euler question from the user and returns the answer (in float).</summary>
+/// <param name="argv">A string.</param>
+/// <returns>Prints out a .</returns>
 [<EntryPoint>]
 let main argv =
     if Array.length argv <> 1 then 
         usage()
+    let database = [("oranges", 8.0); ("pool", 100.0)] |> Map.ofList
+
     let arg = parse (argv.[0])
     match arg with
     | Some a -> 
-        printfn "%A"  a
-    | None -> printfn "Invalid syntax" 
-     
+        printfn "%A"  (printanswer a (eval a database))
+    | None -> printfn "Invalid syntax"    
     0 
-    
 
 
