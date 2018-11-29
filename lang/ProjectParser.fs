@@ -7,7 +7,7 @@ type Header =
 
 type Object = 
 | Main of string
-| Compare of string 
+| Compare of string * string 
 
 type Category = 
 | FitIn of string
@@ -58,7 +58,9 @@ let pobjcat = pright pws1 (pcatlittle pauxcat) |>> (fun (cl,cat) -> (Main(string
 
 //let pcomp = pright pws1 (pbetween particle (pchar '?') (pright pws1 (pmany1 pch))) |>> (fun(a) -> Compare (stringify a)) <!> "Compare"
 
-let pcomp = pright particle (pright pws1 (pcomplittle (pchar '?'))) |>> (fun (cl,_) -> Compare(stringify cl)) <!> "comparing object"
+let punit = pleft (pstr " every day" <|> pstr " every week" <|> pstr " every month" <|> pstr " every year" <|> pstr " per day" <|> pstr " per week" <|> pstr " per month" <|> pstr " per year" <|> pstr "") (pchar '?') <!> "unit"
+
+let pcomp = pright particle (pright pws1 (pcomplittle punit)) |>> (fun (cl,unit) -> Compare(stringify cl, unit)) <!> "comparing object"
 
 let query = pseq pheader (pseq pobjcat pcomp (fun ((a,b),c)-> (a,b,c))) (fun (a,(b,c,d)) -> (a,b,c,d))
 
