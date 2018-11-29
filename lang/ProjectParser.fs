@@ -7,7 +7,7 @@ type Header =
 
 type Object = 
 | Main of string
-| Compare of string
+| Compare of string 
 
 type Category = 
 | FitIn of string
@@ -22,7 +22,9 @@ let precparser() =
   let r = ref dumbparser
   (fun (p: Parser<'a>) -> (fun (input: Input) -> !r p input)), r
 
-let paux = pseq pws1 (pstr "can" <|> pstr "does" <|> pstr "are") id <!> "aux"
+//let paux = pseq pws1 (pstr "can" <|> pstr "does" <|> pstr "are" <|> pstr "") id <!> "aux"
+let paux = pstr " can" <|> pstr " does" <|> pstr " are" <|> pstr "" <!> "aux"
+
 let particle = pstr " an" <|> pstr " a" <|> pstr " the" <|> pstr "" <!> "article"
 
 let is_valid(c: char)  = is_letter(c) || is_digit(c) 
