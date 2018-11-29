@@ -4,37 +4,16 @@ open DataParser
 open ProjectInterpreter
 open Parser
 
+(* 
+    Welcome to KCICK!
+    This language requires an input of 'dotnet run <filename.txt>'
+    where an appropriate textfile should be in the same folder as this program 
+*)
+
 let usage() = 
     printfn "Usage: dotnet run <fileName.txt>."
     exit 1
-
-//ReadAllLines
-
-let rec parselines (lines, database: Map<string, Map<string, float>>) : Map<string, Map<string, float>> =
-    if Array.length lines = 0 then
-        printfn "%A" database
-        database
-    else
-        let line = parseData lines.[0]
-        match line with
-            | Some a -> 
-                printfn "%A" line
-                let (outer, inner, value) = a
-                if not (database.ContainsKey(outer)) then //first outer key of its type
-                    let innerMap = Map.empty
-                    printfn "%s" outer
-                    parselines (lines.[1..], database.Add (outer, innerMap.Add(inner,value))) 
-                else
-                    parselines (lines.[1..], database.Add (outer, database.[outer].Add (inner,value)))                       
-            | None -> database
-
-let construct(fileName: string) : Map<string, Map<string, float>> =
-    let database = Map.empty<string, Map<string, float>>
-    let lines = System.IO.File.ReadAllLines(fileName) 
-    printfn "%A"lines
-    parselines (lines, database)
-        
-                  
+               
 
 /// <summary>Reads in a Euler question from the user and returns the answer (in float).</summary>
 /// <param name="argv">A string.</param>
@@ -45,7 +24,6 @@ let main argv =
         usage()
     
     let database = construct(argv.[0])
-    let validquestion = true
     printfn "Input question:"
     let question = System.Console.ReadLine()
     let arg = parse (question)
@@ -54,9 +32,6 @@ let main argv =
         printfn "%A"  (printanswer a (eval a database))
     | None -> printfn "Invalid syntax"    
     0 
-
-
-
 
 
     //printfn "%A" database
