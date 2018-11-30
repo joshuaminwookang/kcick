@@ -5,11 +5,15 @@ open ProjectInterpreter
 open Actions
 open Parser
 
+(* 
+    Welcome to KCICK!
+    This language requires an input of 'dotnet run <filename.txt>'
+    where an appropriate textfile should be in the same folder as this program 
+*)
+
 let usage() = 
     printfn "Usage: dotnet run <fileName.txt>."
     exit 1
-
-//ReadAllLines
 
 let printwelcome() =
     printfn "––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
@@ -72,9 +76,6 @@ let main argv =
             quit()
         | _ -> printfn "I don't quite know what you mean... Try again?"
     0 
-
-
-
 
 
     //printfn "%A" database
