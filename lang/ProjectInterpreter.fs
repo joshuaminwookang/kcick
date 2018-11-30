@@ -13,7 +13,6 @@ let access2 (c: Category) =
     | FitIn str -> str
     | SoldIn str -> str
 
-
 let evaluateunit (unit: string) : float = 
     match unit with 
     | " every week" | " per week"-> 7.0 
@@ -21,34 +20,30 @@ let evaluateunit (unit: string) : float =
     | " every year" | " per year"-> 365.0
     | _ -> 1.0
 
-let checkunit (unit: string) =
-    if unit <> "" then
-        printfn "Could not understand question!"
-        exit 1
+let printerror() =
+    printfn "Invalid question syntax! Try again?"
 
 let eval (e: Query) (database: Map<string, Map<string, float>>) : float = 
     let (head,obj,cat,comp) = e
     let main = fst (access obj)
-    //printfn "%s" main
     let (compare, unit) = access comp
-    //printfn "%s" compare
-    //printfn "%s" unit
 
-
-    //printfn "%s" (access2 cat)
     let thisMap = database.[access2 cat]
 
     // check if objects are included 
     if not(thisMap.ContainsKey main) || not(thisMap.ContainsKey compare) then
         printfn "Hmmmm... I don't recognize those objects!" 
-        exit 1
-    match cat with
-    | FitIn s -> 
-        checkunit(unit)
-        thisMap.[compare]/thisMap.[main]
-    | SoldIn s ->  
-        thisMap.[compare]*thisMap.[main]*evaluateunit(unit)
-    | _ -> failwith "Can't compute."
+        -1.0
+    else 
+        match cat with
+        | FitIn s -> 
+            if unit <> "" then 
+                printerror() 
+                -1.0
+            else thisMap.[compare]/thisMap.[main]
+        | SoldIn s ->  
+            thisMap.[compare]*thisMap.[main]*evaluateunit(unit)
+        | _ -> -1.0
 
 let printanswer (e: Query) (ans: float) : string =
     let (head,obj,cat,comp) = e
