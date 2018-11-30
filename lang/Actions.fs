@@ -34,10 +34,10 @@ let update(filename, lines) =
     let fact = parseData input
     match fact with
         | Some a -> 
-            printfn "%A" input
-            printfn "%A" [|input|]
+            //printfn "%A" input
+            //printfn "%A" [|input|]
             let updatedlines = Array.append lines [|input|]
-            printfn "%A" updatedlines
+            //printfn "%A" updatedlines
             System.IO.File.WriteAllLines(filename, updatedlines) 
             printfn "Input has been updated. Please restart program."
             exit 1
