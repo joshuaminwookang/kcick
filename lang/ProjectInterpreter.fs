@@ -32,13 +32,8 @@ let evaluateunit (unit: string) : float =
     | " every year" | " per year"-> 365.0
     | _ -> 1.0
 
-/// <summary>Checks if a unit is given when the category shouldn't have any units 
-/// 
-/// For example, it doesn't make sense to ask, "How many oranges can fit in a pool every day?" .</summary>
-let checkunit (unit: string) =
-    if unit <> "" then
-        printfn "Sorry, I think you are asking a weird question!"
-        exit 1
+let printerror() =
+    printfn "Invalid question syntax! Try again?"
 
 /// <summary>Evaluates and answers a query based on the given database.</summary>
 /// <returns>A float.</returns>
@@ -51,16 +46,17 @@ let eval (e: Query) (database: Map<string, Map<string, float>>) : float =
     // check if objects are included in the database
     if not(thisMap.ContainsKey main) || not(thisMap.ContainsKey compare) then
         printfn "Hmmmm... I don't recognize those objects!" 
-        exit 1
-
-    // evaluate according to category of question
-    match cat with
-    | FitIn s -> 
-        checkunit(unit)
-        thisMap.[compare]/thisMap.[main]
-    | SoldIn s ->  
-        thisMap.[compare]*thisMap.[main]*evaluateunit(unit)
-    | _ -> failwith "Sorry, I don't know how to answer your question."
+        -1.0
+    else 
+        match cat with
+        | FitIn s -> 
+            if unit <> "" then 
+                printerror() 
+                -1.0
+            else thisMap.[compare]/thisMap.[main]
+        | SoldIn s ->  
+            thisMap.[compare]*thisMap.[main]*evaluateunit(unit)
+        | _ -> -1.0
 
 /// <summary>Pretty prints the answer to a question.</summary>
 /// <returns>A string.</returns>

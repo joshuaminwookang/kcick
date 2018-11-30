@@ -10,6 +10,7 @@
     <Compile Include="ProjectParser.fs" />
     <Compile Include="DataParser.fs" />
     <Compile Include="ProjectInterpreter.fs" />
+    <Compile Include="Actions.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
