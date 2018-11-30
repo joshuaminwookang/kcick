@@ -4,7 +4,7 @@ fit in lacrosse balls 7.75
 fit in small puddle 10000
 fit in pool 1000000
 fit in back yard pool 1000000
-fit in olympic sized pool 150650325.21
+fit in Olympic sized pool 150650325.21
 fit in big dangerous huge cannons 30.0
 fit in airplane 63160000.0
 sold in hamburgers 0.1
