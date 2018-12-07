@@ -1,0 +1,16 @@
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/DataParserTests.deps.json
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/DataParserTests.runtimeconfig.json
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/DataParserTests.runtimeconfig.dev.json
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/DataParserTests.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/DataParserTests.pdb
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/lang.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/bin/Debug/netcoreapp2.1/lang.pdb
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/obj/Debug/netcoreapp2.1/DataParserTests.fsprojAssemblyReference.cache
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/obj/Debug/netcoreapp2.1/DataParserTests.AssemblyInfoInputs.cache
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/obj/Debug/netcoreapp2.1/DataParserTests.AssemblyInfo.fs
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/obj/Debug/netcoreapp2.1/DataParserTests.fsproj.CopyComplete
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/obj/Debug/netcoreapp2.1/DataParserTests.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/DataParserTests/obj/Debug/netcoreapp2.1/DataParserTests.pdb
