@@ -16,6 +16,7 @@ type Object =
 type Category = 
 | FitIn of string
 | SoldIn of string
+| ThereIn of string
 
 type Query =  Header * Object * Category * Object
 
@@ -61,7 +62,7 @@ pcomplittleImpl := (fun p ->
              )          
 
 // pasrses the category of the question (fit in, sold in , etc)
-let pcat = pright pws1 ((pstr ("fit in") |>> (fun (a) -> FitIn (a))) <|> (pstr ("sold in") |>> (fun (a) -> SoldIn (a)))) //<!> "category"
+let pcat = pright pws1 ((pstr ("fit in") |>> (fun (a) -> FitIn (a))) <|> (pstr ("sold in") |>> (fun (a) -> SoldIn (a))) <|> (pstr ("there in") |>> (fun (a) -> ThereIn (a) ))) // <!> "category"
 
 // parses the sequence of main object, aux verb and category 
 let pobjauxcat = pright pws1 (pmainlittle (pright paux pcat)) |>> (fun (cl,cat) -> (Main(stringify cl),cat)) //<!> "main object"
@@ -73,7 +74,7 @@ let punit = pleft (pstr " every day" <|> pstr " every week" <|> pstr " every mon
 let pcomp = pright particle (pright pws1 (pcomplittle punit)) |>> (fun (cl,unit) -> Compare(stringify cl, unit)) //<!> "comparing object"
 
 // parses the entire question
-let query = pseq pheader (pseq pobjauxcat pcomp (fun ((a,b),c)-> (a,b,c))) (fun (a,(b,c,d)) -> (a,b,c,d))
+let query = pseq pheader (pseq pobjauxcat pcomp (fun ((a,b),c)-> (a,b,c))) (fun (a,(b,c,d)) -> (a,b,c,d)) //<!> "query"
 
 /// <summary>Parses an entire question, including EOF.</summary>
 /// <returns>A Query value.</returns>

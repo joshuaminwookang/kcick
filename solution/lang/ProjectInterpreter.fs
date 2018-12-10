@@ -22,6 +22,7 @@ let access2 (c: Category) =
     match c with
     | FitIn str -> str
     | SoldIn str -> str
+    | ThereIn str -> str
 
 /// <summary>Evaluates the meaning of the unit attached to the comparing object.</summary>
 /// <returns>A float.</returns>
@@ -41,6 +42,7 @@ let eval (e: Query) (database: Map<string, Map<string, float>>) : float =
     let (head,obj,cat,comp) = e
     let main = fst (access obj)
     let (compare, unit) = access comp
+    printfn "%s" (access2 cat)
     let thisMap = database.[access2 cat]
 
     // check if objects are included in the database
@@ -56,6 +58,11 @@ let eval (e: Query) (database: Map<string, Map<string, float>>) : float =
             else thisMap.[compare]/thisMap.[main]
         | SoldIn s ->  
             thisMap.[compare]*thisMap.[main]*evaluateunit(unit)
+        | ThereIn s -> 
+            if unit <> "" then
+                printerror()
+                -1.0
+            else thisMap.[compare]*thisMap.[main]
             
 /// <summary>Pretty prints the answer to a question.</summary>
 /// <returns>A string.</returns>
@@ -77,9 +84,9 @@ let rec parselines (lines, database: Map<string, Map<string, float>>) : Map<stri
         database
     else
         let line = parseData lines.[0]
+        printfn "%A" line
         match line with
             | Some a -> 
-                //printfn "%A" line
                 let (outer, inner, value) = a
                 if not (database.ContainsKey(outer)) then //first outer key of its type
                     let innerMap = Map.empty

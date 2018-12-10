@@ -32,6 +32,7 @@ let getstarted argv : string =
 let main argv =
     let filename = getstarted argv
     let database = construct(filename)
+    printfn "%A" database
 
     printwelcome()
 
