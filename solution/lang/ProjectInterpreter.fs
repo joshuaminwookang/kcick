@@ -56,8 +56,7 @@ let eval (e: Query) (database: Map<string, Map<string, float>>) : float =
             else thisMap.[compare]/thisMap.[main]
         | SoldIn s ->  
             thisMap.[compare]*thisMap.[main]*evaluateunit(unit)
-        | _ -> -1.0
-
+            
 /// <summary>Pretty prints the answer to a question.</summary>
 /// <returns>A string.</returns>
 let printanswer (e: Query) (ans: float) : string =

@@ -27,7 +27,11 @@ pkeylittleImpl := (fun p ->
 // parses the outer key of the database entry
 let pouterkey = pleft ((pstr ("fit in") |>> (fun (a) -> a)) <|> (pstr ("sold in") |>> (fun (a) -> a))) pws1 //<!> "outerkey"
 // parses the data part of the database entry
-let pvalue = pright pws1 pfloat |>> (fun (a) -> (stringify a) |> float ) //<!> "value"
+
+let stringtofloat (s:string) : float = 
+    let fl = s |> float
+    fl
+let pvalue = pright pws1 pfloat |>> (fun (a) -> stringtofloat (stringify a)  ) //<!> "value"
 // parses the inner key of the database entry
 let pinnerkey = pkeylittle pvalue  |>> (fun (cl,fl) -> (stringify cl, fl)) //<!> "innerkey"
 
