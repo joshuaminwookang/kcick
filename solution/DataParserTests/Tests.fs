@@ -9,7 +9,11 @@ type TestClass () =
 
     [<TestMethod>]
     member this.ValidInputReturnsADataEntry () =
-        let input = "fit in rockets 100000.0"
-        let expected = ("fit in", "rockets", float 100000.0)
+        let input = "fit in ice cubes 1.0"
+        let expected = ("fit in", "ice cubes", float 1.0)
         let result = parseData input
-        Assert.AreEqual(expected, result)
+        match result with
+        | Some warr ->
+            Assert.AreEqual(expected, warr)
+        | None ->
+            Assert.IsTrue false

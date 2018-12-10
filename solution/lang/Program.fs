@@ -20,30 +20,6 @@ let printwelcome() =
     printfn "Welcome to the KCICK, the KCICK Consulting Interview CracKer!"
     printfn "––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
 
-
-let rec parselines (lines, database: Map<string, Map<string, float>>) : Map<string, Map<string, float>> =
-    if Array.length lines = 0 then
-        database
-    else
-        let line = parseData lines.[0]
-        match line with
-            | Some a -> 
-                let (outer, inner, value) = a
-                if not (database.ContainsKey(outer)) then //first outer key of its type
-                    let innerMap = Map.empty
-                    parselines (lines.[1..], database.Add (outer, innerMap.Add(inner,value))) 
-                else
-                    parselines (lines.[1..], database.Add (outer, database.[outer].Add (inner,value)))                       
-            | None -> database
-
-let getDataArray(fileName: string) =
-    let lines = System.IO.File.ReadAllLines(fileName) 
-    lines
-
-let construct(fileName: string) : Map<string, Map<string, float>> =
-    let database = Map.empty<string, Map<string, float>>
-    parselines (getDataArray(fileName), database)
-
 let getstarted argv : string = 
      match Array.length argv with 
      | 0 -> "data.txt"

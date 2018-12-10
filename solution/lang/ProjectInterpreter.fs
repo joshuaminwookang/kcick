@@ -63,6 +63,12 @@ let printanswer (e: Query) (ans: float) : string =
     let (head,obj,cat,comp) = e
     "Answer: " + (ans |> string) + " " + fst (access obj)
 
+/// <summary>Reads in all lines from a text file.</summary>
+/// <returns>A string.</returns>
+let getDataArray(fileName: string) =
+    let lines = System.IO.File.ReadAllLines(fileName) 
+    lines
+
 /// <summary>Recursively parses database input lines.</summary>
 /// <returns>A Map of string to a Map of string to float.</returns>
 let rec parselines (lines, database: Map<string, Map<string, float>>) : Map<string, Map<string, float>> =
