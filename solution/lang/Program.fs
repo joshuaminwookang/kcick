@@ -17,7 +17,7 @@ let usage() =
 
 let printwelcome() =
     printfn "––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
-    printfn "Welcome to the KCICK, the KCICK Consulting Interview CracKer!"
+    printfn "  Welcome to KCICK, the KCICK Consulting Interview CracKer!"
     printfn "––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
 
 let getstarted argv : string = 
@@ -32,7 +32,7 @@ let getstarted argv : string =
 let main argv =
     let filename = getstarted argv
     let database = construct(filename)
-    printfn "%A" database
+    //printfn "%A" database
 
     printwelcome()
 

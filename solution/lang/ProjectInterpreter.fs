@@ -42,7 +42,7 @@ let eval (e: Query) (database: Map<string, Map<string, float>>) : float =
     let (head,obj,cat,comp) = e
     let main = fst (access obj)
     let (compare, unit) = access comp
-    printfn "%s" (access2 cat)
+    //printfn "%s" (access2 cat)
     let thisMap = database.[access2 cat]
 
     // check if objects are included in the database
@@ -84,7 +84,7 @@ let rec parselines (lines, database: Map<string, Map<string, float>>) : Map<stri
         database
     else
         let line = parseData lines.[0]
-        printfn "%A" line
+        //printfn "%A" line
         match line with
             | Some a -> 
                 let (outer, inner, value) = a

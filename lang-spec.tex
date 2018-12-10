@@ -16,11 +16,10 @@
 \linespread{1.1}
 
 \pagestyle{fancy}
-\lhead{\hmwkAuthorName}
+\rhead{\hmwkAuthorName}
 \chead{\hmwkClass}
-\rhead{\firstxmark}
+\lhead{Final Project}
 \lfoot{\lastxmark}
-\rfoot{\hmwkTitle}
 \cfoot{\thepage}
 
 \renewcommand\headrulewidth{0.4pt}
@@ -65,12 +64,12 @@
 %
 % Homework Details
 %
-\newcommand{\hmwkTitle}{Homework 10}
+\newcommand{\hmwkTitle}{Project Specification Document}
 \newcommand{\hmwkDueDate}{November 29, 2018}
 \newcommand{\hmwkClass}{CSCI 334 Principles of PL }
 \newcommand{\hmwkClassTime}{}
 \newcommand{\hmwkClassInstructor}{Professor Dan Barowy}
-\newcommand{\hmwkAuthorName}{{3013644,3023651}}
+\newcommand{\hmwkAuthorName}{{Kang and Zheng}}
 
 %
 % Various Helper Commands
@@ -93,14 +92,21 @@
 
 \renewcommand{\maketitle}{\bgroup\vspace*{-0.75in}
 \setlength{\parindent}{0pt}
-\begin{flushleft}
-\noindent\rule{6.5in}{0.6pt}\\[3mm]
+\begin{center}
+\vspace{220 pt}
+\noindent\rule{6.5in}{0.6pt}\\[5mm]
 {\Large\textbf{\hmwkClass: \hmwkTitle}}\\[2mm]
-\textit{\hmwkClassInstructor\ \hmwkClassTime} \\ 
-\normalsize {\small Due:\ \hmwkDueDate\ at 10:00pm} \hfill 
-\textbf{ID: 3013644, 3023651 $\;$}\\
+\vspace{40pt}
+{\fontfamily{qcr}\selectfont
+\Large{\textbf{"KCICK: the \underline{K}CICK  \underline{C}onsulting \underline{I}nterview \underline{C}rac\underline{K}er" \\}}
+}
+\vspace{40pt}
+
+\textbf{\textit{ \hmwkClassInstructor ,\ Fall 2018}} \\[5mm]
+\textbf{Josh Kang and Emily Zheng $\;$}\\
+\vspace{10pt}
 \noindent\rule{6.5in}{0.6pt}
-\end{flushleft}\egroup
+\end{center}\egroup
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -110,63 +116,65 @@
 \renewcommand{\part}[1]{\textbf{\large Part
 \Alph{partCounter}}\stepcounter{partCounter}\\}
 
-\vspace{20pt}
-\begin{center}
-{\fontfamily{qcr}\selectfont
-\Large{\textbf{"KCICK: the \underline{K}CICK  \underline{C}onsulting \underline{I}nterview \underline{C}rac\underline{K}er"}}
-}
-\end{center}
+\newpage
 \fontfamily{phv}\selectfont
 \vspace{20pt}
-{\large \textbf{(a) Introduction }} \\
+{\large \textbf{Introduction }} \\
 
 Management consulting is a dream job for every Williams student. Well, at least that's what our \textit{non-CS} friends say.\\ 
 
-One of the most notorious aspects of consulting interviews are the Fermi problems. These are problems that require a fast and rough estimation of quantities that may be hard to measure physically. One example of a Fermi problem is "How many tennis balls could fit in an Olympic sized pool?" You might answer this by first considering how many tennis balls could fit in a dresser, then estimating how many dressers might fit in a lane, then multiplying that by the number of lanes in a pool. \\
+One of the most notorious aspects of consulting interviews are the Fermi problems--these are problems that require a fast and rough estimation of quantities that may be hard to measure physically. One example would be: "How many tennis balls could fit in an Olympic sized pool?" To really answer this question, you would need to know how large a tennis ball is as well as have guess for the volume of a swimming pool. \\
 
 But what if you are asked one of these questions and you have \emph{absolutely no clue}? Is there any way to prepare for these questions, ace them, and  fulfill your dreams of becoming a consultant?\\
 
 Don't worry, KCICK is here for you.\\
 
-KCICK will be a query language that finds and retrieves data from a database. The database will provide a means of storing important information and facts and performing various calculations before displaying the final result. In short, our project will be to design a user-friendly language that can be used to solve and answer Fermi problems. \\
+%KCICK is be a query language that finds and retrieves data from a database. The database will provide a means of storing important information and facts and performing various calculations before displaying the final result. In short, our project will be to design a user-friendly language that can be used to solve and answer Fermi problems. \\
 
-{\large{\textbf{(b) Design Principles }}}\\
+\vspace{ 30pt}
 
-Our goal is to keep KCICK simple and direct {\footnotesize(for our econ friends)}. To this end, the design of our language will mimic that of the metric system. The foundation of our language will be composed of "base units", which are standard units of measurements that can be used to measure every type of object in our language. The language will be used much like a "natural language", where the user should be able to supply input, typed out like a regular question, and the language will be able to recognize certain keywords and "vocab" and retrieve the measurements for these objects in the database. We also want our program to be dynamic, so users can input data and expand the database at anytime.\\
+{\large{\textbf{Design Principles }}}\\
 
-{\large{\textbf{(c) Examples }}}  \\
+The design goal for KCICK was to create a language that is so simple and natural that our target users {\footnotesize (even econ majors)} can make the most out of it without having to learn anything new. To this end, we have designed the language to be extremely modular. The KCICK parser breaks down the user's questions into base items, which can be swapped with anything currently stored in the database. We also wanted our program to be dynamic, so the users can even input data and update the database at anytime.  The syntax is close to a "natural language". The user simply needs to type out a query that looks just like a regular question in English, and KCICK will come back with numerical answers to the most outrageous examples of Fermi problems.  \\
+
+\vspace{ 30pt}
+
+{\large{\textbf{Examples }}}  \\
 
 \#1) \underline{How many}  \textbf{tennis balls} can \underline{fit in} an \textbf{Olympic sized pool}? 
 \begin{itemize}
-    \item run with "dotnet run $\langle$filename$\rangle$". The file name is an optional parameter that lets the user supply a database. Otherwise, the program will use the default database, "data.txt".
-    \item Parse and recognize key phrases
-    \item Query relevant information from database 
+    \item \textbf{Instruction:} run with "dotnet run data.txt". You can provide your own text file as a databse as well. Press 1 and type in 
+    \begin{verbatim}
+        How many tennis balls can fit in an Olympic sized pool?
+    \end{verbatim}
     \item tennis balls: 10.0 cubic inches and Olympic sized pool: 150650325.21 cubic inches
     \item Answer: 15065032.521 tennis balls.
 \end{itemize}
 
-             
-\#2) \underline{How many} \textbf{big dangerous huge cannons} can \underline{fit in} an \textbf{Olympic sized pool}? 
+\newpage
+\#2) underline{How many} \textbf{Big Macs} are \underline{sold in} \textbf{New York City} \underline{every day}?
 \begin{itemize}
-    \item "dotnet run $\langle$filename$\rangle$"
-    \item Parse and recognize key phrases
-    \item Query relevant information from database 
-    \item big dangerous huge cannons: 80.0 cubic inches and Olympic sized pool: 150650325.21 cubic inches
-    \item Answer: 1883219.065125 big dangerous huge cannons
+    \item \textbf{Instruction:} run with "dotnet run data.txt". Press 1 and type 
+    \begin{verbatim}
+        How many Big Macs are sold in New York City every day?
+    \end{verbatim}
+    \item Big Macs sold per capita (per day) : about 0.01 and the population of New York City 8623000.0. 
+    \item Answer: 86230 Big Macs
 \end{itemize}
 
-\#3) \underline{How many} \textbf{hamburgers} are \underline{sold in} \textbf{New York City} \underline{every day}?
+\#3) \underline{How many} \textbf{chalkboards} are \underline{there in} \textbf{Williams College}?
 \begin{itemize}
-    \item "dotnet run $\langle$filename$\rangle$"
-    \item Parse and recognize key phrases
-    \item Query relevant information from database 
-    \item hamburgers: 0.1 consumed per person every day and New York City: 8623000.0 people
-    \item Answer: 862300 hamburgers
+    \item "dotnet run data.txt" Press 1 and type 
+    \begin{verbatim}
+        How many chalkboards are there in Williams College?
+    \end{verbatim}
+    \item chalkboards: 0.05 per person and Williams College: 3000 people
+    \item Answer: 150 hamburgers
 \end{itemize}
 
-\vspace{10pt}
+\vspace{30pt}
              
-{\large{\textbf{(d) Language Concepts }}}\\  
+{\large{\textbf{Language Concepts }}}\\  
 
 KCICK is essentially a \emph{smarter} version of Google search--its goal is to answer estimation questions that Google may not find the answer on the web. Since Fermi questions are almost always asked in regular forms, users only need to 
 \begin{itemize}
@@ -181,9 +189,9 @@ KCICK is essentially a \emph{smarter} version of Google search--its goal is to a
 The key idea is to set a quantity you want to estimate with certain constraints. Assuming that the user follows the grammatical and vocabulary rules of KCICK syntax, the parser should be able to identify the keywords and objects, combine these together via calculations, and output an answer. \\
 
 \newpage
-{\large{\textbf{(e) Syntax }}}\\
+{\large{\textbf{Syntax }}}\\
 
-Following is an informal syntax for KCICK. \\
+Following is the syntax of KCICK.  \\
 
 First we have the overarching non-terminal ``query", which will basically be the entire user input:
 \begin{verbatim}
@@ -213,10 +221,13 @@ The third component is ``category'' which determines the type of the quantity we
 \begin{verbatim}
     <category> ::= fit in
                  | sold in
+                 | there in
 \end{verbatim}
-Fit in and Sold in are two types of categories. This syntax will determine the ``tag" of the objects we will query. For example, the ``category'' of ``sold in" will tell KCICK where to look in the database for the relevant information.
+Fit in and Sold in are two types of categories. This syntax will determine the ``tag" of the objects we will query. For example, the ``category'' of ``sold in" will tell KCICK where to look in the database for the relevant information.\\
 
-The syntax very much replicates that of standard English. For example, the Fermi question
+\noindent\rule{6.5in}{0.6pt}\\ [2mm]
+
+In short, the syntax very much replicates that of standard English. For example, the Fermi question
 \begin{center}
 "How many oranges can fit in a truck?"
 \end{center}
@@ -229,8 +240,8 @@ will be broken down into
 \end{verbatim}
 
 \newpage
-{\large{\textbf{(f) Semantics}}} 
-\subsection{Semantics of each language element}
+{\large{\textbf{Semantics}}} 
+\subsection{A. Semantics of each language element}
 
 (1) Query 
 \vspace{5pt}
@@ -261,7 +272,7 @@ In short, Query is a meaningful deconstruction of a typical (but restricted) que
 
 %The \textit{primitives} of our language are data, headers, objects, categories, and constraints. We will have a primitive that represents the smallest unit of measure. For example, if our primitive is the object, "ping-pong ball", everything else in our language will be measured in terms of quantity of ping-pong balls. Since ping-pong balls are very small and not always the best way to measure certain objects given their shape, we might include additional primitives such as "Twix candy bars" or "Principles of Programming Languages textbooks". The data will simply be floats that represent the quantity, size, or frequency (depending on the tag) of the object. And finally, the question 
 
-\subsection{Operations} 
+\subsection{B. Operations} 
 The single operation that KCICK supports is to enter a question in the form of a Query; KCICK will return an answer in floats or will tell the user it cannot solve the problem.\\
 
 Answering questions further requires two actions: fetching data and performing calculations.\\
@@ -283,10 +294,10 @@ Category gives information on which Map in the database the evaluation should be
 
 We will need to combine the data in a productive manner that helps us arrive at the answer. The calculations involved in this example would be multiplying 0.05 by 8623000.0. Furthermore, 
 
-\subsection{Representation}
+\subsection{C. Representation}
 Our program is a database, which will represented by a table data structure. The rows will correspond to the name of the object, and the column will correspond to the tag that that object is associated with. So in the "fetching" action, the program would match the name of the object of interest (a string) with the row values, and match the tag of that object (a string) with the column values. This will allow the program to locate the "metric conversion" that we want and retrieve the relevant data, to be used in performing calculations.
 
-\subsection{Sample Abstract Syntax Trees}
+\subsection{D. Sample Abstract Syntax Trees}
 \#1) \underline{How many}  \textbf{tennis balls} can \underline{fit in} an \textbf{Olympic sized pool}? 
 \begin{center}
 \begin{forest}
@@ -358,7 +369,7 @@ Our program is a database, which will represented by a table data structure. The
 f\end{forest}
 \end{center}
 
-\subsection{Evaluation (as of 11/29/18)}
+\subsection{E. Evaluation}
 Evaluation begins when the user provides input in the form of a question, otherwise known as a "query". Then, the program will perform the two actions 1) fetching data and 2) performing calculations until the output is reached. The output will likely be a quantity of type float that is returned to the user as the answer to their Fermi question.\\
 
 Let's consider the question: "How many t can fit in a pool?"\\
@@ -387,19 +398,18 @@ Our parser returns the AST:
 \end{forest}
 \end{center}
 
-First, we would examine the category, "fit in", which tells us where in our database to search. Our database will ultimately be a map of strings to maps (and these "interior" maps will be from strings to floats). So it will be of type \begin{verbatim} Map<string, Map <string, float>> \end{verbatim} The category string will be the key, and lead us to another map with various objects as keys and floats as values. For example, the categor "fit in" leads the interpretor to get to the map related to volumetric data. Then, we find the value in the map by using the Main object and Compare object as keys, divide their values, and return the answer as 18831290.65125 oranges! (given the pool is Olympic sized)\\
+First, we would examine the category, "fit in", which tells us where in our database to search. Our database will ultimately be a map of strings to maps (and these "interior" maps will be from strings to floats). So it will be of type \begin{verbatim} Map<string, Map <string, float>> \end{verbatim} The category string will be the key, and lead us to another map with various objects as keys and floats as values. For example, the category "fit in" leads the interpretor to get to the map related to volumetric data. Then, we find the value in the map by using the Main object and Compare object as keys, divide their values, and return the answer as 18831290.65125 oranges! (given the pool is Olympic sized)\\
 
 The interpretor evaluates the numeric data in different ways for different categories. For example, if the category is "sold in" the float values will be multiplied instead of being divided to give an answer to questions like "How many Big Macs are sold in New York City every day?" \\
 
 \newpage
-{\large{\textbf{(g) Remaining Work (as of 11/29/18}}} \\ 
+{\large{\textbf{Remaining Work }}} \\ 
 
-We have updated the program to have a REPL with information on all the actions that the user can take. KCICK now reads in text files (default as data.txt) to initialize the database. The user can add entries to the database, which will overwrite the data.txt file. Once the user restarts KCICK, the given data input can be used to answer new questions. \\
+We have updated the program to have a REPL with information on all the actions that the user can take. KCICK now reads in text files (default as data.txt) to initialize the database. The user can add entries to the database, which will overwrite the data.txt file. Once the user restarts KCICK, the given data input can be used to answer new questions. We have also added the category, "there in". Last week, we had planned to add a header "how often", but we realized that this type of question would require a different type of syntax. Currently, our parser cannot handle more than one syntax (Header, object, aux verb, category, article, object), but in the future this would be a helpful feature to add. We also were planning to make the program case insensitive to input, but we decided that leaving it case sensitive would be better for the user's experience, since some objects can be intentionally capitalized (proper nouns, names, etc.)\\
 
 Here are some ideas to we will be pursuing in the near future:
 \begin{itemize}
-    \item more categories ("there in")
     \item more headers ("how often")
-    \item make program case insensitive to input
+    \item web crawling (being able to add things to the database by a google search)
 \end{itemize}
 \end{document}
