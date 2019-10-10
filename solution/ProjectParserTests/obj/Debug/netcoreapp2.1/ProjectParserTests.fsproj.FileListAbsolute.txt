@@ -1,0 +1,16 @@
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTest.TestAdapter.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.Interface.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/Microsoft.VisualStudio.TestPlatform.MSTestAdapter.PlatformServices.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/ProjectParserTests.deps.json
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/ProjectParserTests.runtimeconfig.json
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/ProjectParserTests.runtimeconfig.dev.json
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/ProjectParserTests.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/ProjectParserTests.pdb
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/lang.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/bin/Debug/netcoreapp2.1/lang.pdb
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/obj/Debug/netcoreapp2.1/ProjectParserTests.fsprojAssemblyReference.cache
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/obj/Debug/netcoreapp2.1/ProjectParserTests.AssemblyInfoInputs.cache
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/obj/Debug/netcoreapp2.1/ProjectParserTests.AssemblyInfo.fs
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/obj/Debug/netcoreapp2.1/ProjectParserTests.fsproj.CopyComplete
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/obj/Debug/netcoreapp2.1/ProjectParserTests.dll
+/Users/jmk/cs334/cs334hw9-eggmilly-joshuaminwookang/solution/ProjectParserTests/obj/Debug/netcoreapp2.1/ProjectParserTests.pdb
