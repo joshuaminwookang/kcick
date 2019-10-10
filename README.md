@@ -1,2 +1,4 @@
-# cs334-hw9-starter
-CS334 HW9 starter
+# CS334 Final Project
+## KCICK, a F#-based DSL to solve consulting interview questions
+
+TBA
